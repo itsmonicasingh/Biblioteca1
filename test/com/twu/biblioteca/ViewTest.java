@@ -35,6 +35,15 @@ public class ViewTest {
         assertEquals("List of Books\nName            Author          Year \nRed Jhon        Martin          2004 \nSuccess         Ricky           1994 \n", outContent.toString());
     }
 
+    @Test
+    public void shouldDisplayInvalidOption() {
+        View view = new View();
+
+        view.displayInvalidOption();
+
+        assertEquals("Select a valid option!\n",outContent.toString());
+    }
+
     @After
     public void cleanUpStreams() {
         System.setOut(original);
