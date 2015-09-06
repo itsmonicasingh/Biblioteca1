@@ -1,0 +1,16 @@
+=================================================
+1. Project Description
+        Design and implement a Library Management System for Bangalore Public Library
+
+2. Setting Up Development Environment
+        1. Install JDK 1.8 from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html according to OS.
+        2. Install an
+
+3. Build the project.
+    Run the following command from terminal:
+      ant
+
+4. Run the program:
+    Run the following command to run the project from terminal:
+      ant run
+
