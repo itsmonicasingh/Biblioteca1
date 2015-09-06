@@ -32,7 +32,7 @@ public class ViewTest {
         View view = new View();
         BookList booklist = new BookList();
         view.displayListOfBooks(booklist);
-        assertEquals("Red Jhon\nSuccess\n", outContent.toString());
+        assertEquals("List of Books\nRed Jhon\nSuccess\n", outContent.toString());
     }
 
     @After

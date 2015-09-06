@@ -4,6 +4,8 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         View view = new View();
-        view.welcomeMessage();
+        BookList bookList = new BookList();
+        BibliotecaController bibliotecaController = new BibliotecaController(view,bookList);
+        bibliotecaController.start();
     }
 }
