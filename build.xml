@@ -1,46 +1,77 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="biblioteca" default="run" basedir=".">
+<?xml version = "1.0"?>
+<project name="biblioteca" default="report" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
 
-    <property name="lib.dir" value="lib"/>
-    <path id="classpath">
-        <fileset dir="${lib.dir}" includes="junit-4.11.jar"/>
-        <fileset dir="${lib.dir}" includes="hamcrest-core-1.3.jar"/>
-        <fileset dir="${lib.dir}" includes="mockito-all-1.9.5.jar"/>
-    </path>
+    <property name = "project.name" value="biblioteca" />
+    <property name = "package.name" value="com.twu.biblioteca" />
 
-    <target name="compile">
-        <javac srcdir="src;test" destdir="out" includeantruntime="false" classpathref="classpath">
+    <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+        <classpath path="lib/jacocoant.jar"/>
+    </taskdef>
+
+
+    <target name="build" depends="clean">
+        <mkdir dir="out"/>
+        <javac destdir="out">
+            <src path="src;test"/>
+            <classpath location="lib/junit-4.11.jar"/>
+            <classpath location="lib/mockito-all-1.9.5.jar"/>
         </javac>
     </target>
 
-    <target name="runjunit" depends="compile">
-        <junit haltonfailure="true" printsummary="true" showoutput="yes">
-            <test name="com.twu.biblioteca.ViewTest"/>
-            <test name="com.twu.biblioteca.LibraryTest"/>
-            <test name="com.twu.biblioteca.BookTest"/>
-            <test name="com.twu.biblioteca.BibliotecaControllerTest"/>
-            <classpath >
-                <pathelement location="out" />
-                <path refid="classpath"/>
-            </classpath>
-            <test name="com.twu.biblioteca.com.twu.biblioteca.ViewTest"/>
-        </junit>
-    </target>
-
-    <target name="createjar" depends="runjunit">
-        <jar destfile="lib/app.jar"
+    <target name="build-jar" depends="build">
+        <jar destfile="lib/${project.name}.jar"
              basedir="out"
-             excludes="**/Test.class"
-                />
+             excludes="**/Test.class">
+            <manifest>
+                <attribute name="Main-Class" value="${package.name}.BibliotecaApp"/>
+            </manifest>
+        </jar>
     </target>
 
-    <target name="run" depends="createjar">
-        <java classname="com.twu.biblioteca.BibliotecaApp">
-            <arg value="-h"/>
+    <target name="clean" description="clean previous output directory">
+        <delete dir="out"/>
+    </target>
+
+    <target name="run" depends="build-jar">
+        <java fork="true" failonerror="yes" classname="${package.name}.Biblioteca">
             <classpath>
-                <pathelement location="lib/app.jar"/>
-                <pathelement path="${java.class.path}"/>
+                <path location="lib/${project.name}.jar"/>
             </classpath>
         </java>
     </target>
+
+    <target name="runjUnit" depends="build">
+        <jacoco:coverage destfile="./out/jacoco.exec">
+            <junit printsummary="yes" haltonfailure="true" fork="true" forkmode="once" >
+                <classpath>
+                    <pathelement location="lib/junit-4.11.jar"/>
+                    <pathelement location="lib/mockito-all-1.9.5.jar"/>
+                    <pathelement location="out"/>
+                </classpath>
+                <batchtest fork="yes">
+                    <fileset dir="test">
+                        <include name="**/*Test*.java"/>
+                    </fileset>
+                </batchtest>
+            </junit>
+        </jacoco:coverage>
+    </target>
+
+    <target name="report" depends="runjUnit">
+        <jacoco:report>
+            <executiondata>
+                <file file="out/jacoco.exec"/>
+            </executiondata>
+            <structure name="Biblioteca">
+                <classfiles>
+                    <fileset dir="out"/>
+                </classfiles>
+                <sourcefiles encoding="UTF-8">
+                    <fileset dir="src"/>
+                </sourcefiles>
+            </structure>
+            <html destdir="out" />
+        </jacoco:report>
+    </target>
+
 </project>
