@@ -32,7 +32,7 @@ public class ViewTest {
         View view = new View();
         Library library = new Library();
         view.displayListOfBooks(library);
-        assertEquals("List of Books\nRed Jhon\nSuccess\n", outContent.toString());
+        assertEquals("List of Books\nName            Author          Year \nRed Jhon        Martin          2004 \nSuccess         Ricky           1994 \n", outContent.toString());
     }
 
     @After
