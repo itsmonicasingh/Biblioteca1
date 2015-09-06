@@ -20,8 +20,10 @@ public class BibliotecaController {
             if (userInput.equals("1")) {
                 view.displayListOfBooks(library);
 
-            } else {
+            } else if (userInput.equals("Quit")) {
                 return;
+            } else {
+                view.displayInvalidOption();
             }
         }
     }
