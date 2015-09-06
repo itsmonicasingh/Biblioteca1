@@ -2,13 +2,13 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class BookList {
+public class Library {
     private static ArrayList<Book> books;
 
-    public BookList() {
+    public Library() {
         books = new ArrayList<Book>();
-        books.add(new Book("Red Jhon"));
-        books.add(new Book("Success"));
+        books.add(new Book("Red Jhon", "Martin", "2004"));
+        books.add(new Book("Success", "Ricky", "1994"));
     }
 
     public static ArrayList<Book> getBooks() {

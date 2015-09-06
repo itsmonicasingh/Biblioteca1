@@ -3,16 +3,17 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
-public class BookListTest {
+public class LibraryTest {
     @Test
     public void shouldGiveListOfBooks() {
-        BookList bookList = new BookList();
+        Library bookList = new Library();
         ArrayList<Book> books = new ArrayList<Book>();
 
-        books.add(new Book("Red Jhon"));
-        books.add(new Book("Success"));
+        books.add(new Book("Red Jhon", "Martin", "2004"));
+        books.add(new Book("Success", "Ricky", "1994"));
 
         assertEquals(books, bookList.getBooks());
     }
