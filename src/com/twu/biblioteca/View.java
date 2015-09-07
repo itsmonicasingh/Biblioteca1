@@ -19,10 +19,16 @@ public class View {
     }
     public String getInput() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public void displayInvalidOption() {
         System.out.println("Select a valid option!");
+    }
+
+    public void displayMenu() {
+        System.out.println("[0] Quit");
+        System.out.println("[1] List Books");
+        System.out.println("[2] Checkout Book");
     }
 }
