@@ -17,18 +17,9 @@ public class BibliotecaController {
         while (true) {
             view.displayMenu();
             userInput = view.getInput();
-
-            if (userInput.equals("0")) {
-                return;
-            } else if (userInput.equals("1")) {
-                view.displayListOfBooks(library);
-
-            } else if (userInput.equals("2")) {
-                library.checkOutBook(view.getInput());
-
-            } else {
-                view.displayInvalidOption();
-            }
+            BibliotecaParser parser = new BibliotecaParser();
+            Operations operation = parser.parse(userInput,view,library);
+            operation.execute();
         }
     }
 }
