@@ -40,6 +40,6 @@ public class BibliotecaControllerTest {
         when(mockedView.getInput()).thenReturn("2").thenReturn("Success").thenReturn("0");
         bibliotecaController.start();
 
-        verify(mockedLibrary).removeBook("Success");
+        verify(mockedLibrary).checkOutBook("Success");
     }
 }

@@ -13,7 +13,7 @@ public class Library {
         return books;
     }
 
-    public void removeBook(String bookName) {
+    public void checkOutBook(String bookName) {
         for (Book book : books) {
             if (book.getName().equals(bookName)) {
                 books.remove(book);

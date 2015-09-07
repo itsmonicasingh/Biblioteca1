@@ -24,7 +24,7 @@ public class BibliotecaController {
                 view.displayListOfBooks(library);
 
             } else if (userInput.equals("2")) {
-                library.removeBook(view.getInput());
+                library.checkOutBook(view.getInput());
 
             } else {
                 view.displayInvalidOption();
