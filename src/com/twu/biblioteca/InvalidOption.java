@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 public class InvalidOption implements Operations {
-    private final View view;
+    private View view;
 
     public InvalidOption(View view) {
 

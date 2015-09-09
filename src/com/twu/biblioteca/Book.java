@@ -3,8 +3,8 @@ package com.twu.biblioteca;
 public class Book {
 
     private String name;
-    private final String author;
-    private final String year;
+    private String author;
+    private String year;
 
 
     public Book(String name, String author, String year) {

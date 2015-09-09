@@ -1,8 +1,8 @@
 package com.twu.biblioteca;
 
 public class DisplayBooks implements Operations {
-    private final View view;
-    private final Library library;
+    private View view;
+    private Library library;
 
     public DisplayBooks(View view, Library library) {
 
