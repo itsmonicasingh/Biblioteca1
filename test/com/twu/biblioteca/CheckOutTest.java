@@ -18,4 +18,18 @@ public class CheckOutTest {
         checkOut.execute();
         verify(mockedLibrary).checkOutBook("Success");
     }
+
+    @Test
+    public void checkOutShouldCallDisplaySuccessfulCheckout() {
+        Library mockedLibrary = mock(Library.class);
+        View mockedView = mock(View.class);
+
+        CheckOut checkOut = new CheckOut(mockedView, mockedLibrary);
+
+        when(mockedLibrary.checkOutBook("Success")).thenReturn(true);
+        when(mockedView.getInput()).thenReturn("Success");
+        checkOut.execute();
+
+        verify(mockedView).displaySuccessfulCheckout();
+    }
 }

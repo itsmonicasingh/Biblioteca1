@@ -13,12 +13,13 @@ public class Library {
         return books;
     }
 
-    public void checkOutBook(String bookName) {
+    public boolean checkOutBook(String bookName) {
         for (Book book : books) {
             if (book.getName().equals(bookName)) {
                 books.remove(book);
-                break;
+                return true;
             }
         }
+        return false;
     }
 }

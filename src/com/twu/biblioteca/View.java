@@ -31,4 +31,8 @@ public class View {
         System.out.println("[1] List Books");
         System.out.println("[2] Checkout Book");
     }
+
+    public void displaySuccessfulCheckout() {
+        System.out.println("Thank you! Enjoy the book");
+    }
 }

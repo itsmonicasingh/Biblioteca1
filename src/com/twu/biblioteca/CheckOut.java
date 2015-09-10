@@ -1,8 +1,8 @@
 package com.twu.biblioteca;
 
 public class CheckOut implements Operations {
-    private final View view;
-    private final Library library;
+    private View view;
+    private Library library;
 
     public CheckOut(View view, Library library) {
 
@@ -12,6 +12,11 @@ public class CheckOut implements Operations {
 
     @Override
     public void execute() {
-        library.checkOutBook(view.getInput());
+
+        boolean checkout = library.checkOutBook(view.getInput());
+        if (checkout) {
+            view.displaySuccessfulCheckout();
+        }
     }
+
 }
