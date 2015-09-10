@@ -13,9 +13,11 @@ public class CheckOut implements Operations {
     @Override
     public void execute() {
 
-        boolean checkout = library.checkOutBook(view.getInput());
-        if (checkout) {
+        if (library.checkOutBook(view.getInput())) {
             view.displaySuccessfulCheckout();
+        }
+        else {
+            view.displayUnSuccessfulCheckout();
         }
     }
 
