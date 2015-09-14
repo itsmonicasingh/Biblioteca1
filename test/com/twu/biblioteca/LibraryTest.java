@@ -56,6 +56,12 @@ public class LibraryTest {
     public void shouldGiveFalseOnUnSuccessfulCheckout() {
         assertEquals(false, library.checkOutBook("heheh"));
     }
+
+    @Test
+    public void shouldCheckInBookToLibrary() {
+        library.checkOutBook("Success");
+        assertEquals(true, library.checkInBook("Success"));
+    }
 }
 
 
