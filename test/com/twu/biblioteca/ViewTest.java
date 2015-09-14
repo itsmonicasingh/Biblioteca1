@@ -56,7 +56,7 @@ public class ViewTest {
 
         view.displayMenu();
 
-        assertEquals("[0] Quit\n[1] List Books\n[2] Checkout Book\n", outContent.toString());
+        assertEquals("[0] Quit\n[1] List Books\n[2] Checkout Book\n[3] CheckIn Book", outContent.toString());
     }
 
     @Test
@@ -75,6 +75,15 @@ public class ViewTest {
         view.displayUnSuccessfulCheckout();
 
         assertEquals("That book is not available.\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldDisplaySuccessfulCheckIn() {
+        View view = new View();
+
+        view.displaySuccessfulCheckIn();
+
+        assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
 
     @After

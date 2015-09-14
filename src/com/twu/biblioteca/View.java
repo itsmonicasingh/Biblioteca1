@@ -30,6 +30,7 @@ public class View {
         System.out.println("[0] Quit");
         System.out.println("[1] List Books");
         System.out.println("[2] Checkout Book");
+        System.out.println("[3] CheckIn Book");
     }
 
     public void displaySuccessfulCheckout() {
@@ -38,5 +39,9 @@ public class View {
 
     public void displayUnSuccessfulCheckout() {
         System.out.println("That book is not available.");
+    }
+
+    public void displaySuccessfulCheckIn() {
+        System.out.println("Thank you for returning the book.");
     }
 }
