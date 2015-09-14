@@ -2,19 +2,19 @@ package com.twu.biblioteca;
 
 public class Book {
 
-    private String name;
+    private String title;
     private String author;
     private String year;
 
 
-    public Book(String name, String author, String year) {
-        this.name = name;
+    public Book(String title, String author, String year) {
+        this.title = title;
         this.author = author;
         this.year = year;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
     public String getYear() {
@@ -32,11 +32,11 @@ public class Book {
 
         Book book = (Book) o;
 
-        return name.equals(book.name);
+        return title.equals(book.title);
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return title.hashCode();
     }
 }

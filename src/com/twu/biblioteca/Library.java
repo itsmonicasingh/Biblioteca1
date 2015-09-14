@@ -17,7 +17,7 @@ public class Library {
 
     public boolean checkOutBook(String title) {
         for (Book book : books) {
-            if (book.getName().equals(title)) {
+            if (book.getTitle().equals(title)) {
                 books.remove(book);
                 checkedoutBooks.add(book);
                 return true;
@@ -28,7 +28,7 @@ public class Library {
 
     public boolean checkInBook(String title) {
         for (Book book : checkedoutBooks) {
-            if (book.getName().equals(title)) {
+            if (book.getTitle().equals(title)) {
                 checkedoutBooks.remove(book);
                 books.add(book);
                 return true;
