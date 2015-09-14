@@ -62,6 +62,11 @@ public class LibraryTest {
         library.checkOutBook("Success");
         assertEquals(true, library.checkInBook("Success"));
     }
+
+    @Test
+    public void shouldNotCheckInBookToLibrary() {
+        assertEquals(false, library.checkInBook("This book was never in the library"));
+    }
 }
 
 
