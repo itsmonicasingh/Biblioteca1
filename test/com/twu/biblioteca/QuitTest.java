@@ -15,6 +15,5 @@ public class QuitTest {
         exit.expectSystemExitWithStatus(0);
         Quit quit = new Quit();
         quit.execute();
-
     }
 }
