@@ -13,7 +13,7 @@ public class View {
         System.out.printf("%-15s %-15s %-5s\n","Name","Author","Year");
 
         for (Book book : library.getBooks()) {
-            System.out.printf("%-15s %-15s %-5s\n", book.getTitle(), book.getAuthor(), book.getYear());
+            System.out.println(book);
         }
     }
 

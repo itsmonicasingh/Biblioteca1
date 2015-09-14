@@ -10,7 +10,7 @@ public class BookTest {
     @Test
     public void shouldGiveBookName() {
         Book book = new Book("Red Jhon","Martin ","1994");
-        assertEquals("Red Jhon", book.getTitle());
+        assertEquals("Red Jhon        Martin          1994 ", book.toString());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class BookTest {
 
     @Test
     public void shouldReturnTrueWhenTitlesOfTwoBooksAreSame() {
-        Book book = new Book("Dracula","Bram Stoker ","1994");
+        Book book = new Book("Dracula", "Bram Stoker ","1994");
         assertEquals(true, book.hasTitle("Dracula"));
     }
 }
