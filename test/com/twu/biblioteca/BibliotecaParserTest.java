@@ -24,4 +24,13 @@ public class BibliotecaParserTest {
 
         assertEquals(InvalidOption.class, bibliotecaParser.parse("90", view, library).getClass());
     }
+
+    @Test
+    public void shouldGiveCheckInObject() {
+        BibliotecaParser bibliotecaParser = new BibliotecaParser();
+        View view = Mockito.mock(View.class);
+        Library library = Mockito.mock(Library.class);
+
+        assertEquals(CheckIn.class, bibliotecaParser.parse("3", view, library).getClass());
+    }
 }

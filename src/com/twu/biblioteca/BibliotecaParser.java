@@ -9,7 +9,10 @@ public class BibliotecaParser {
             return new DisplayBooks(view, library);
         } else if (userInput.equals("2")) {
             return new CheckOut(view, library);
-        } else {
+        } else if (userInput.equals("3")) {
+            return new CheckIn(view,library);
+        }
+        else {
             return new InvalidOption(view);
         }
     }
