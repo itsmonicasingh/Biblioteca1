@@ -12,11 +12,11 @@ public class View {
         System.out.println("List of Books");
         System.out.printf("%-15s %-15s %-5s\n","Name","Author","Year");
 
-
         for (Book book : library.getBooks()) {
-            System.out.printf("%-15s %-15s %-5s\n", book.getTitle(), book.getAuthor(),book.getYear());
+            System.out.printf("%-15s %-15s %-5s\n", book.getTitle(), book.getAuthor(), book.getYear());
         }
     }
+
     public String getInput() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();

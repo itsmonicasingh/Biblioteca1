@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Library {
     private ArrayList<Book> books;
-    private ArrayList<Book> checkedoutBooks;
+    private ArrayList<Book> checkedOutBooks;
 
     public Library(ArrayList<Book> books, ArrayList<Book> checkedOutBooks) {
         this.books = books;
-        this.checkedoutBooks = checkedOutBooks;
+        this.checkedOutBooks = checkedOutBooks;
     }
 
     public ArrayList<Book> getBooks() {
@@ -19,7 +19,7 @@ public class Library {
         for (Book book : books) {
             if (book.getTitle().equals(title)) {
                 books.remove(book);
-                checkedoutBooks.add(book);
+                checkedOutBooks.add(book);
                 return true;
             }
         }
@@ -27,9 +27,9 @@ public class Library {
     }
 
     public boolean checkInBook(String title) {
-        for (Book book : checkedoutBooks) {
+        for (Book book : checkedOutBooks) {
             if (book.getTitle().equals(title)) {
-                checkedoutBooks.remove(book);
+                checkedOutBooks.remove(book);
                 books.add(book);
                 return true;
             }
