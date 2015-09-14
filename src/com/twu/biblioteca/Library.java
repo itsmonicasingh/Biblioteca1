@@ -2,7 +2,9 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
+//Library allows issue and return of books
 public class Library {
+
     private ArrayList<Book> books;
     private ArrayList<Book> checkedOutBooks;
 

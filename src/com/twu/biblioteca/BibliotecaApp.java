@@ -6,8 +6,8 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         View view = new View();
-        Book book1 = new Book("Red Jhon", "Martin", "2004");
-        Book book2 = new Book("Success", "Ricky", "1994");
+        Book book1 = new Book("Dracula", "Bram Stoker", "2004");
+        Book book2 = new Book("Alchemist", "Paulo Coelho", "2006");
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Book> checkOutBooks = new ArrayList<Book>();
         books.add(book1);

@@ -13,10 +13,10 @@ public class CheckInTest {
 
         CheckIn checkIn = new CheckIn(mockedView, mockedLibrary);
 
-        when(mockedView.getInput()).thenReturn("Success");
+        when(mockedView.getInput()).thenReturn("Alchemist");
         checkIn.execute();
 
-        verify(mockedLibrary).checkInBook("Success");
+        verify(mockedLibrary).checkInBook("Alchemist");
     }
 
     @Test
@@ -26,8 +26,8 @@ public class CheckInTest {
 
         CheckIn checkIn = new CheckIn(mockedView, mockedLibrary);
 
-        when(mockedLibrary.checkInBook("Success")).thenReturn(true);
-        when(mockedView.getInput()).thenReturn("Success");
+        when(mockedLibrary.checkInBook("Alchemist")).thenReturn(true);
+        when(mockedView.getInput()).thenReturn("Alchemist");
         checkIn.execute();
 
         verify(mockedView).displaySuccessfulCheckIn();
@@ -40,8 +40,8 @@ public class CheckInTest {
 
         CheckIn checkIn = new CheckIn(mockedView, mockedLibrary);
 
-        when(mockedLibrary.checkInBook("Success")).thenReturn(false);
-        when(mockedView.getInput()).thenReturn("Success");
+        when(mockedLibrary.checkInBook("Alchemist")).thenReturn(false);
+        when(mockedView.getInput()).thenReturn("Alchemist");
         checkIn.execute();
 
         verify(mockedView).displayUnSuccessfulCheckIn();

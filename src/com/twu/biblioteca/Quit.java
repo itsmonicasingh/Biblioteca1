@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+//Quit quits the application
 public class Quit implements Operations {
 
     public Quit() {

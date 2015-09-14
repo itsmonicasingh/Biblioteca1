@@ -28,17 +28,20 @@ public class ViewTest {
     }
 
     @Test
-    public void shouldDisplayListOfBooks() {
+    public void shouldReturnTheBookDetailsOfTheBooksInTheLibrary() {
         View view = new View();
-        Book book1 = new Book("Red Jhon", "Martin", "2004");
-        Book book2 = new Book("Success", "Ricky", "1994");
-        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
         ArrayList<Book> checkOutBooks = new ArrayList<Book>();
-        books.add(book1);
-        books.add(book2);
-        Library library = new Library(books, checkOutBooks);
+        listOfBooks.add(new Book("Alchemist", "Paulo Coelho", "2006"));
+        listOfBooks.add(new Book("Dracula", "Bram Stoker", "1998"));
+        listOfBooks.add(new Book("Sixth Sense", "M Night", "1999"));
+        Library library = new Library(listOfBooks, checkOutBooks);
         view.displayListOfBooks(library);
-        assertEquals("List of Books\nName            Author          Year \nRed Jhon        Martin          2004 \nSuccess         Ricky           1994 \n", outContent.toString());
+
+        assertEquals("List of Books\n" + String.format("%-15s %-15s %-5s\n", "Title", "Author", "Year Of Publication") +
+                String.format("%-15s %-15s %-5s\n", "Alchemist", "Paulo Coelho", 2006) +
+                String.format("%-15s %-15s %-5s\n", "Dracula", "Bram Stoker", 1998) +
+                String.format("%-15s %-15s %-5s\n", "Sixth Sense", "M Night", 1999), outContent.toString());
     }
 
     @Test

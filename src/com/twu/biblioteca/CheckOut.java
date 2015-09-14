@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
+//CheckOut issues a book from the library
 public class CheckOut implements Operations {
+
     private View view;
     private Library library;
 

@@ -19,10 +19,10 @@ public class LibraryTest {
 
     @Before
     public void setUp() throws Exception {
-        book1 = new Book("Red Jhon", "Martin", "2004");
-        book2 = new Book("Success", "Ricky", "1994");
-        book3 = new Book("Red Jhon", "Martin", "2004");
-        book4 = new Book("Success", "Ricky", "1994");
+        book1 = new Book("Dracula","Bram Stoker ","1994");
+        book2 = new Book("Alchemist", "Paulo Coelho", "2006");
+        book3 = new Book("Dracula","Bram Stoker ","1994");
+        book4 = new Book("Alchemist", "Paulo Coelho", "2006");
         books = new ArrayList<Book>();
         books1 = new ArrayList<Book>();
         checkedOutBooks = new ArrayList<Book>();
@@ -42,14 +42,14 @@ public class LibraryTest {
 
     @Test
     public void shouldRemoveBookFromLibrary() {
-        library.checkOutBook("Success");
+        library.checkOutBook("Alchemist");
         books1.remove(book4);
         assertEquals(books1, library.getBooks());
     }
 
     @Test
     public void shouldGiveTrueOnSuccessfulCheckout() {
-        assertEquals(true, library.checkOutBook("Success"));
+        assertEquals(true, library.checkOutBook("Alchemist"));
     }
 
     @Test
@@ -59,8 +59,8 @@ public class LibraryTest {
 
     @Test
     public void shouldCheckInBookToLibrary() {
-        library.checkOutBook("Success");
-        assertEquals(true, library.checkInBook("Success"));
+        library.checkOutBook("Alchemist");
+        assertEquals(true, library.checkInBook("Alchemist"));
     }
 
     @Test

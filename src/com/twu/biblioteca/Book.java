@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+//Book has title, author and year and checks if two books are same
 public class Book {
 
     private String title;
@@ -21,7 +22,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return String.format("%-15s %-15s %-5s",title,author,year);
+        return String.format("%-15s %-15s %-5s", title, author, year);
     }
 
     @Override

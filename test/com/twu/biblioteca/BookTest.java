@@ -9,8 +9,8 @@ public class BookTest {
 
     @Test
     public void shouldGiveBookName() {
-        Book book = new Book("Red Jhon","Martin ","1994");
-        assertEquals("Red Jhon        Martin          1994 ", book.toString());
+        Book book = new Book("Dracula","Bram Stoker ","1994");
+        assertEquals(String.format("%-15s %-15s %-5s", "Dracula", "Bram Stoker", "1994"), book.toString());
     }
 
     @Test

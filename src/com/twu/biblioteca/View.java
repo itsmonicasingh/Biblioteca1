@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.Scanner;
 
+//View displays to console
 public class View {
 
     public void welcomeMessage() {
@@ -10,7 +11,7 @@ public class View {
 
     public void displayListOfBooks(Library library) {
         System.out.println("List of Books");
-        System.out.printf("%-15s %-15s %-5s\n","Name","Author","Year");
+        System.out.printf("%-15s %-15s %-5s\n","Title","Author","Year Of Publication");
 
         for (Book book : library.getBooks()) {
             System.out.println(book);

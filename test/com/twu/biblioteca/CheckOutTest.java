@@ -4,6 +4,7 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 public class CheckOutTest {
+
     @Test
     public void checkOutShouldCallCheckOutBook() {
         Library mockedLibrary = mock(Library.class);
@@ -11,9 +12,9 @@ public class CheckOutTest {
 
         CheckOut checkOut = new CheckOut(mockedView, mockedLibrary);
 
-        when(mockedView.getInput()).thenReturn("Success");
+        when(mockedView.getInput()).thenReturn("Alchemist");
         checkOut.execute();
-        verify(mockedLibrary).checkOutBook("Success");
+        verify(mockedLibrary).checkOutBook("Alchemist");
     }
 
     @Test
@@ -23,8 +24,8 @@ public class CheckOutTest {
 
         CheckOut checkOut = new CheckOut(mockedView, mockedLibrary);
 
-        when(mockedLibrary.checkOutBook("Success")).thenReturn(true);
-        when(mockedView.getInput()).thenReturn("Success");
+        when(mockedLibrary.checkOutBook("Alchemist")).thenReturn(true);
+        when(mockedView.getInput()).thenReturn("Alchemist");
         checkOut.execute();
 
         verify(mockedView).displaySuccessfulCheckout();
