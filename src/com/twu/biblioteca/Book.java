@@ -25,6 +25,12 @@ public class Book {
         return author;
     }
 
+    public Boolean hasTitle(String name) {
+        if (title.equals(name))
+            return true;
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

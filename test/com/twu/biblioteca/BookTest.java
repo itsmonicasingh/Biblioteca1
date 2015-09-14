@@ -41,4 +41,10 @@ public class BookTest {
     public void shouldHaveSameHashCodeComparingABookToAnotherBookWithSameCoordinates() {
         assertEquals(new Book("Dracula","Bram Stoker ","1994"), new Book("Dracula","Bram Stoker ","1994"));
     }
+
+    @Test
+    public void shouldReturnTrueWhenTitlesOfTwoBooksAreSame() {
+        Book book = new Book("Dracula","Bram Stoker ","1994");
+        assertEquals(true, book.hasTitle("Dracula"));
+    }
 }
