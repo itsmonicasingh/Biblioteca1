@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-//Used for Input Output
 public class ViewTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     PrintStream original;
@@ -34,9 +33,10 @@ public class ViewTest {
         Book book1 = new Book("Red Jhon", "Martin", "2004");
         Book book2 = new Book("Success", "Ricky", "1994");
         ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Book> checkOutBooks = new ArrayList<Book>();
         books.add(book1);
         books.add(book2);
-        Library library = new Library(books);
+        Library library = new Library(books, checkOutBooks);
         view.displayListOfBooks(library);
         assertEquals("List of Books\nName            Author          Year \nRed Jhon        Martin          2004 \nSuccess         Ricky           1994 \n", outContent.toString());
     }
