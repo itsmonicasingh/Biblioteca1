@@ -14,6 +14,8 @@ public class CheckIn implements Operations {
     public void execute() {
         if (library.checkInBook(view.getInput())) {
             view.displaySuccessfulCheckIn();
+        } else {
+            view.displayUnSuccessfulCheckIn();
         }
     }
 }
