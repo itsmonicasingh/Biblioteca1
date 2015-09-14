@@ -6,7 +6,7 @@ public class BibliotecaParser {
         if (userInput.equals("0")) {
             return new Quit();
         } else if (userInput.equals("1")) {
-            return new DisplayBooks(view, library);
+            return new Display(view, library);
         } else if (userInput.equals("2")) {
             return new CheckOut(view, library);
         } else if (userInput.equals("3")) {

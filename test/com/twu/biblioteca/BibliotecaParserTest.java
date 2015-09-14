@@ -13,7 +13,7 @@ public class BibliotecaParserTest {
         View view = Mockito.mock(View.class);
         Library library = Mockito.mock(Library.class);
 
-        assertEquals(DisplayBooks.class, bibliotecaParser.parse("1", view, library).getClass());
+        assertEquals(Display.class, bibliotecaParser.parse("1", view, library).getClass());
     }
 
     @Test
