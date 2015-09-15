@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 //Movie has name, year, director and ratings
-public class Movie {
+public class Movie implements LibraryItem{
     private String name;
     private String year;
     private String director;
@@ -17,5 +17,11 @@ public class Movie {
     @Override
     public String toString() {
         return String.format("%-15s %-15s %-15s %-15s", name, year, director, ratings);
+    }
+
+    public boolean hasTitle(String movieName) {
+        if (name.equals(movieName))
+            return true;
+        return false;
     }
 }
