@@ -15,6 +15,8 @@ public class BibliotecaParser {
             return new Display(view, moviesLibrary);
         } else if (userInput.equals("5")) {
             return new CheckOut(view, moviesLibrary);
+        } else if (userInput.equals("6")) {
+            return new CheckIn(view, moviesLibrary);
         }
         else {
             return new InvalidOption(view);
