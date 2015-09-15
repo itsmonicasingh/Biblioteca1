@@ -27,11 +27,6 @@ public class BibliotecaParserTest {
     }
 
     @Test
-    public void shouldReturnDisplayMoviesObject() {
-        assertEquals(Display.class, bibliotecaParser.parse("4", view, library, moviesLibrary).getClass());
-    }
-
-    @Test
     public void shouldGiveInvalidOptionObject() {
         assertEquals(InvalidOption.class, bibliotecaParser.parse("90", view, library, moviesLibrary).getClass());
     }
@@ -49,6 +44,11 @@ public class BibliotecaParserTest {
     @Test
     public void shouldGiveCheckInObject() {
         assertEquals(CheckIn.class, bibliotecaParser.parse("3", view, library, moviesLibrary).getClass());
+    }
+
+    @Test
+    public void shouldReturnDisplayMoviesObject() {
+        assertEquals(Display.class, bibliotecaParser.parse("4", view, library, moviesLibrary).getClass());
     }
 
     @Test

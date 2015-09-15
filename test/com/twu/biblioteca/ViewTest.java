@@ -59,7 +59,9 @@ public class ViewTest {
 
         view.show(Messages.menu);
 
-        assertEquals("[0] Quit\n[1] List Books\n[2] Checkout Book\n[3] CheckIn Book\n", outContent.toString());
+        assertEquals("\nMenu\n" + "[0] Quit\n" + "[1] List Books\n" + "[2] Checkout Book\n" + "[3] CheckIn Book\n" +
+                "[4] List Movies\n" + "[5] CheckOut Movie\n" + "[6] CheckIn Movie\n" +
+                "Enter Your Option :\n", outContent.toString());
     }
 
     @Test
