@@ -38,4 +38,8 @@ public class Library {
         }
         return false;
     }
+
+    public ArrayList<LibraryItem> getCheckedOutLibraryItems() {
+        return checkedOutLibraryItems;
+    }
 }

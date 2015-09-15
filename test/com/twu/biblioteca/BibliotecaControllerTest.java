@@ -14,7 +14,7 @@ public class BibliotecaControllerTest {
     BibliotecaController bibliotecaController;
 
     @Rule
-    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+    public ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Before
     public void setUp() throws Exception {

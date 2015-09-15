@@ -35,8 +35,8 @@ public class ViewTest {
         listOfBooks.add(new Book("Alchemist", "Paulo Coelho", "2006"));
         listOfBooks.add(new Book("Dracula", "Bram Stoker", "1998"));
         listOfBooks.add(new Book("Sixth Sense", "M Night", "1999"));
-        Library library = new Library(listOfBooks, checkOutBooks);
-        view.displayListOfLibraryItems(library);
+        Library bookLibrary = new Library(listOfBooks, checkOutBooks);
+        view.displayListOfLibraryItems(bookLibrary.getLibraryItems(), Messages.listOfBooks, Messages.booksHeader);
 
         assertEquals("List of Books\n" + String.format("%-15s %-15s %-5s\n", "Title", "Author", "Year Of Publication") +
                 String.format("%-15s %-15s %-5s\n", "Alchemist", "Paulo Coelho", 2006) +
@@ -59,8 +59,8 @@ public class ViewTest {
 
         view.show(Messages.menu);
 
-        assertEquals("\nMenu\n" + "[0] Quit\n" + "[1] List Books\n" + "[2] Checkout Book\n" + "[3] CheckIn Book\n" +
-                "[4] List Movies\n" + "[5] CheckOut Movie\n" + "[6] CheckIn Movie\n" +
+        assertEquals("\nMenu\n" + "[0] Quit\n" + "[1] List Books\n" + "[2] List Books\n" + "[3] Checkout Book\n" + "[4] CheckIn Book\n" +
+                "[5] List Movies\n" + "[6] List Movies\n" + "[7] CheckOut Movie\n" + "[8] CheckIn Movie\n" +
                 "Enter Your Option :\n", outContent.toString());
     }
 
