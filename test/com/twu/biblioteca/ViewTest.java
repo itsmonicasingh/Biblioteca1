@@ -30,13 +30,13 @@ public class ViewTest {
     @Test
     public void shouldReturnTheBookDetailsOfTheBooksInTheLibrary() {
         View view = new View();
-        ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        ArrayList<Book> checkOutBooks = new ArrayList<Book>();
+        ArrayList<LibraryItem> listOfBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkOutBooks = new ArrayList<LibraryItem>();
         listOfBooks.add(new Book("Alchemist", "Paulo Coelho", "2006"));
         listOfBooks.add(new Book("Dracula", "Bram Stoker", "1998"));
         listOfBooks.add(new Book("Sixth Sense", "M Night", "1999"));
         Library library = new Library(listOfBooks, checkOutBooks);
-        view.displayListOfBooks(library);
+        view.displayListOfLibraryItems(library);
 
         assertEquals("List of Books\n" + String.format("%-15s %-15s %-5s\n", "Title", "Author", "Year Of Publication") +
                 String.format("%-15s %-15s %-5s\n", "Alchemist", "Paulo Coelho", 2006) +

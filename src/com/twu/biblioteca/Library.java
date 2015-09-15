@@ -2,37 +2,37 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-//Library allows issue and return of books
+//Library allows issue and return of Library items i.e Books and movies
 public class Library {
 
-    private ArrayList<Book> books;
-    private ArrayList<Book> checkedOutBooks;
+    private  ArrayList<LibraryItem> libraryItems;
+    private  ArrayList<LibraryItem> checkedOutLibraryItems;
 
-    public Library(ArrayList<Book> books, ArrayList<Book> checkedOutBooks) {
-        this.books = books;
-        this.checkedOutBooks = checkedOutBooks;
+    public Library(ArrayList<LibraryItem> libraryItems, ArrayList<LibraryItem> checkedOutLibraryItems) {
+        this.libraryItems = libraryItems;
+        this.checkedOutLibraryItems = checkedOutLibraryItems;
     }
 
-    public ArrayList<Book> getBooks() {
-        return books;
+    public ArrayList<LibraryItem> getLibraryItems() {
+        return libraryItems;
     }
 
-    public boolean checkOutBook(String title) {
-        for (Book book : books) {
-            if (book.hasTitle(title)) {
-                books.remove(book);
-                checkedOutBooks.add(book);
+    public boolean checkOutLibraryItem(String itemName) {
+        for (LibraryItem libraryItem : libraryItems) {
+            if (libraryItem.hasTitle(itemName)) {
+                libraryItems.remove(libraryItem);
+                checkedOutLibraryItems.add(libraryItem);
                 return true;
             }
         }
         return false;
     }
 
-    public boolean checkInBook(String title) {
-        for (Book book : checkedOutBooks) {
-            if (book.hasTitle(title)) {
-                checkedOutBooks.remove(book);
-                books.add(book);
+    public boolean checkInLibraryItem(String itemName) {
+        for (LibraryItem libraryItem : checkedOutLibraryItems) {
+            if (libraryItem.hasTitle(itemName)) {
+                checkedOutLibraryItems.remove(libraryItem);
+                libraryItems.add(libraryItem);
                 return true;
             }
         }

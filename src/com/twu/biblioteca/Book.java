@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 //Book has title, author and year and checks if two books are same
-public class Book {
+public class Book implements LibraryItem {
 
     private String title;
     private String author;
@@ -14,10 +14,8 @@ public class Book {
         this.year = year;
     }
 
-    public Boolean hasTitle(String name) {
-        if (title.equals(name))
-            return true;
-        return false;
+    public boolean hasTitle(String name) {
+        return title.equals(name);
     }
 
     @Override

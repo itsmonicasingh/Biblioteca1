@@ -9,7 +9,8 @@ import static org.mockito.Mockito.*;
 
 public class BibliotecaControllerTest {
     View mockedView;
-    Library mockedLibrary;
+    Library mockedBookLibrary;
+    Library mockedMovieLibrary;
     BibliotecaController bibliotecaController;
 
     @Rule
@@ -18,8 +19,9 @@ public class BibliotecaControllerTest {
     @Before
     public void setUp() throws Exception {
         mockedView = mock(View.class);
-        mockedLibrary = mock(Library.class);
-        bibliotecaController = new BibliotecaController(mockedView, mockedLibrary);
+        mockedMovieLibrary = mock(Library.class);
+        mockedBookLibrary = mock(Library.class);
+        bibliotecaController = new BibliotecaController(mockedView, mockedBookLibrary, mockedMovieLibrary);
 
     }
 
@@ -29,7 +31,7 @@ public class BibliotecaControllerTest {
         exit.expectSystemExitWithStatus(0);
         bibliotecaController.start();
 
-        verify(mockedView).displayMenu();
+        verify(mockedView).show(Messages.menu);
     }
 
     @Test
@@ -39,9 +41,8 @@ public class BibliotecaControllerTest {
 
         bibliotecaController.start();
 
-        verify(mockedView).displayInvalidOption();
+        verify(mockedView).show(Messages.invalidOption);
     }
 }
 
 
-   

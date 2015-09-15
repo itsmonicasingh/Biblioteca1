@@ -14,10 +14,11 @@ public class CheckIn implements Operations {
 
     @Override
     public void execute() {
-        if (library.checkInBook(view.getInput())) {
-            view.displaySuccessfulCheckIn();
+        view.show(Messages.enterBookName);
+        if (library.checkInLibraryItem(view.getInput())) {
+            view.show(Messages.successfulBookCheckIn);
         } else {
-            view.displayUnSuccessfulCheckIn();
+            view.show(Messages.unsuccessfulBookCheckIn);
         }
     }
 }
