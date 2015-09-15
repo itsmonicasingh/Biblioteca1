@@ -12,7 +12,7 @@ public class BibliotecaController {
     }
 
     public void start() {
-        view.welcomeMessage();
+        view.show(Messages.welcome);
         String userInput;
         while (true) {
             view.displayMenu();

@@ -5,8 +5,13 @@ import java.util.Scanner;
 //View displays to console
 public class View {
 
-    public void welcomeMessage() {
-        System.out.println("Welcome to Biblioteca");
+    public String getInput() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    public void show(Messages messages) {
+        System.out.println(messages.getMessage());
     }
 
     public void displayListOfBooks(Library library) {
@@ -18,10 +23,7 @@ public class View {
         }
     }
 
-    public String getInput() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
-    }
+
 
     public void displayInvalidOption() {
         System.out.println("Select a valid option!");

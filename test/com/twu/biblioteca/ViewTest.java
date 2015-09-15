@@ -23,7 +23,7 @@ public class ViewTest {
     @Test
     public void shouldShowWelcomeMessage() {
         View view = new View();
-        view.welcomeMessage();
+        view.show(Messages.welcome);
         assertEquals("Welcome to Biblioteca\n", outContent.toString());
     }
 
@@ -48,7 +48,7 @@ public class ViewTest {
     public void shouldDisplayInvalidOption() {
         View view = new View();
 
-        view.displayInvalidOption();
+        view.show(Messages.invalidOption);
 
         assertEquals("Select a valid option!\n",outContent.toString());
     }
@@ -57,7 +57,7 @@ public class ViewTest {
     public void shouldDisplayMenuOptions() {
         View view = new View();
 
-        view.displayMenu();
+        view.show(Messages.menu);
 
         assertEquals("[0] Quit\n[1] List Books\n[2] Checkout Book\n[3] CheckIn Book\n", outContent.toString());
     }
@@ -66,7 +66,7 @@ public class ViewTest {
     public void shouldDisplaySuccessfulCheckout() {
         View view = new View();
 
-        view.displaySuccessfulCheckout();
+        view.show(Messages.successfulBookCheckout);
 
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
@@ -75,7 +75,7 @@ public class ViewTest {
     public void shouldDisplayUnSuccessfulCheckout() {
         View view = new View();
 
-        view.displayUnSuccessfulCheckout();
+        view.show(Messages.unsuccessfulBookCheckOut);
 
         assertEquals("That book is not available.\n", outContent.toString());
     }
@@ -84,7 +84,7 @@ public class ViewTest {
     public void shouldDisplaySuccessfulCheckIn() {
         View view = new View();
 
-        view.displaySuccessfulCheckIn();
+        view.show(Messages.successfulBookCheckIn);
 
         assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
@@ -93,7 +93,7 @@ public class ViewTest {
     public void shouldDisplayUnSuccessfulCheckIn() {
         View view = new View();
 
-        view.displayUnSuccessfulCheckIn();
+        view.show(Messages.unsuccessfulBookCheckIn);
 
         assertEquals("That is not a valid book to return.\n", outContent.toString());
     }
