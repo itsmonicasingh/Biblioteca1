@@ -13,6 +13,8 @@ public class BibliotecaParser {
             return new CheckIn(view,bookLibrary);
         } else if (userInput.equals("4")) {
             return new Display(view, moviesLibrary);
+        } else if (userInput.equals("5")) {
+            return new CheckOut(view, moviesLibrary);
         }
         else {
             return new InvalidOption(view);
