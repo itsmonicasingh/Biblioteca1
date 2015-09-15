@@ -18,7 +18,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "name " + " emailAddress " + " phoneNumber";
+        return name + " " + emailAddress + " " + phoneNumber;
     }
 
     public boolean match(String s, String itsme) {

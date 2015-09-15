@@ -100,6 +100,17 @@ public class ViewTest {
         assertEquals("That is not a valid book to return.\n", outContent.toString());
     }
 
+    @Test
+    public void shouldDisplayUserInformation() {
+        View view = new View();
+        User user = new User("Monica", "monicas@thoughtworks.com", "9448056963", "123-4567", "itsme");
+
+        view.showUserInformation(user);
+
+        assertEquals("Monica monicas@thoughtworks.com 9448056963\n", outContent.toString());
+    }
+    
+
     @After
     public void cleanUpStreams() {
         System.setOut(original);

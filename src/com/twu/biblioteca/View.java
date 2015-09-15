@@ -22,4 +22,8 @@ public class View {
             System.out.println(libraryItem);
         }
     }
+
+    public void showUserInformation(User user) {
+        System.out.println(user);
+    }
 }
