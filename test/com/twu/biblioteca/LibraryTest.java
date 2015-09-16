@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -10,7 +12,6 @@ import static org.junit.Assert.assertEquals;
 public class LibraryTest {
     ArrayList<LibraryItem> books;
     ArrayList<LibraryItem> books1;
-    ArrayList<LibraryItem> checkedOutBooks;
     Book book1;
     Book book2;
     Book book3;
@@ -19,12 +20,14 @@ public class LibraryTest {
 
     ArrayList<LibraryItem> movies;
     ArrayList<LibraryItem> movies1;
-    ArrayList<LibraryItem> checkedOutMovies;
     Movie movie1;
     Movie movie2;
     Movie movie3;
     Movie movie4;
     Library movieLibrary;
+    private HashMap<LibraryItem, String> checkedOutBooks;
+    private HashMap<LibraryItem, String> checkedOutMovies;
+    private String user;
 
     @Before
     public void setUp() throws Exception {
@@ -34,7 +37,6 @@ public class LibraryTest {
         book4 = new Book("Alchemist", "Paulo Coelho", "2006");
         books = new ArrayList<LibraryItem>();
         books1 = new ArrayList<LibraryItem>();
-        checkedOutBooks = new ArrayList<LibraryItem>();
 
         movie1 = new Movie("Titanic", "1997", "James Cameron", "7.7");
         movie2 = new Movie("InterStellar", "2014", "Christopher Nolan", "10");
@@ -42,8 +44,10 @@ public class LibraryTest {
         movie4 = new Movie("InterStellar", "2014", "Christopher Nolan", "10");
         movies = new ArrayList<LibraryItem>();
         movies1 = new ArrayList<LibraryItem>();
-        checkedOutMovies = new ArrayList<LibraryItem>();
-        
+        checkedOutBooks = new HashMap<LibraryItem, String>();
+        checkedOutMovies = new HashMap<LibraryItem, String>();
+
+        user = "Monica";
 
         books.add(book1);
         books.add(book2);
@@ -60,36 +64,41 @@ public class LibraryTest {
     }
 
     @Test
+    public void shouldGiveListOfMovies() {
+        assertEquals(movies, movieLibrary.getLibraryItems());
+    }
+
+    @Test
     public void shouldGiveListOfBooks() {
         assertEquals(books1, bookLibrary.getLibraryItems());
     }
 
     @Test
     public void shouldRemoveBookFromLibrary() {
-        bookLibrary.checkOutLibraryItem("Alchemist");
+        bookLibrary.checkOutLibraryItem(user, "Alchemist");
         books1.remove(book4);
         assertEquals(books1, bookLibrary.getLibraryItems());
     }
 
     @Test
     public void shouldGiveTrueOnSuccessfulCheckout() {
-        assertEquals(true, bookLibrary.checkOutLibraryItem("Alchemist"));
+        assertEquals(true, bookLibrary.checkOutLibraryItem(user, "Alchemist"));
     }
 
     @Test
     public void shouldGiveFalseOnUnSuccessfulCheckout() {
-        assertEquals(false, bookLibrary.checkOutLibraryItem("heheh"));
+        assertEquals(false, bookLibrary.checkOutLibraryItem(user, "heheh"));
     }
 
     @Test
     public void shouldCheckInBookToLibrary() {
-        bookLibrary.checkOutLibraryItem("Alchemist");
-        assertEquals(true, bookLibrary.checkInLibraryItem("Alchemist"));
+        bookLibrary.checkOutLibraryItem(user, "Alchemist");
+        assertEquals(true, bookLibrary.checkInLibraryItem(user, "Alchemist"));
     }
 
     @Test
     public void shouldNotCheckInBookToLibrary() {
-        assertEquals(false, bookLibrary.checkInLibraryItem("This book was never in the library"));
+        assertEquals(false, bookLibrary.checkInLibraryItem(user, "This book was never in the library"));
     }
 }
 
