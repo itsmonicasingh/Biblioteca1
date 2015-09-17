@@ -38,6 +38,9 @@ public class BibliotecaParser {
         } else if (userInput.equals("9")) {
             if (user.isLibrarian())
                 return new DisplayCheckedOutList(view, moviesLibrary.getCheckedOutLibraryItems(), Messages.listOfCheckedOutMovies, Messages.checkedOutMoviesHeader);
+        } else if (userInput.equals("10")) {
+            if (user.isLibrarian())
+                return new DisplayListOfUsers(view, login.getUsers(), Messages.listOfUsers, Messages.userHeader);
         }
         else {
             return new InvalidOption(view);
