@@ -78,6 +78,13 @@ public class BibliotecaParserTest {
     }
 
     @Test
+    public void shouldGiveInvalidOptionObjectOn9AsInputWhenUserIsNotLibrarian() {
+        when(user.isLibrarian()).thenReturn(false);
+
+        assertEquals(InvalidOption.class, bibliotecaParser.parse("9", user).getClass());
+    }
+
+    @Test
     public void shouldGiveLoginObjectOn1AsOptionInLoginMenu() {
         assertEquals(LoginController.class, bibliotecaParser.parse("1").getClass());
     }

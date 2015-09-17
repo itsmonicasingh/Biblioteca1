@@ -35,7 +35,11 @@ public class BibliotecaParser {
             if (user.isLibrarian())
                 return new DisplayCheckedOutList(view, booksLibrary.getCheckedOutLibraryItems(), Messages.listOfCheckedOutBooks, Messages.checkedOutBooksHeader);
             return new NullObject();
-        } else {
+        } else if (userInput.equals("9")) {
+            if (user.isLibrarian())
+                return new DisplayCheckedOutList(view, moviesLibrary.getCheckedOutLibraryItems(), Messages.listOfCheckedOutMovies, Messages.checkedOutMoviesHeader);
+        }
+        else {
             return new InvalidOption(view);
         }
     }
