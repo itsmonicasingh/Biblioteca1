@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 //View displays to console
@@ -25,5 +26,13 @@ public class View {
 
     public void showUserInformation(User user) {
         System.out.println(user);
+    }
+
+    public void displayCheckedOutList(HashMap<LibraryItem, String> CheckedOutLibraryItems, Messages listOfItems, Messages itemHeader) {
+        System.out.println(listOfItems.getMessage());
+        System.out.print(itemHeader.getMessage());
+        for (LibraryItem item : CheckedOutLibraryItems.keySet()) {
+            System.out.println(item + " " + CheckedOutLibraryItems.get(item));
+        }
     }
 }

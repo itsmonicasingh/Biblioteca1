@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -28,20 +29,19 @@ public class ViewTest {
     }
 
     @Test
-    public void shouldReturnTheBookDetailsOfTheBooksInTheLibrary() {
+    public void shouldDisplayListOfBooks() {
         View view = new View();
-        ArrayList<LibraryItem> listOfBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkOutBooks = new ArrayList<LibraryItem>();
-        listOfBooks.add(new Book("Alchemist", "Paulo Coelho", "2006"));
-        listOfBooks.add(new Book("Dracula", "Bram Stoker", "1998"));
-        listOfBooks.add(new Book("Sixth Sense", "M Night", "1999"));
-        Library bookLibrary = new Library(listOfBooks, checkOutBooks);
+        ArrayList<LibraryItem> books = new ArrayList<LibraryItem>();
+        HashMap<LibraryItem, String> checkedBooks = new HashMap<LibraryItem, String>();
+        books.add(new Book("Alchemist", "Paulo Coelho", "2006"));
+        books.add(new Book("Dracula", "Bram Stoker", "1998"));
+        Library bookLibrary = new Library(books, checkedBooks);
+
         view.displayListOfLibraryItems(bookLibrary.getLibraryItems(), Messages.listOfBooks, Messages.booksHeader);
 
         assertEquals("List of Books\n" + String.format("%-15s %-15s %-5s\n", "Title", "Author", "Year Of Publication") +
-                String.format("%-15s %-15s %-5s\n", "Alchemist", "Paulo Coelho", 2006) +
-                String.format("%-15s %-15s %-5s\n", "Dracula", "Bram Stoker", 1998) +
-                String.format("%-15s %-15s %-5s\n", "Sixth Sense", "M Night", 1999), outContent.toString());
+                String.format("%-15s %-15s %-15s\n", "Alchemist", "Paulo Coelho", 2006) +
+                String.format("%-15s %-15s %-15s\n", "Dracula", "Bram Stoker", 1998) , outContent.toString());
     }
 
     @Test
@@ -103,13 +103,26 @@ public class ViewTest {
     @Test
     public void shouldDisplayUserInformation() {
         View view = new View();
-        User user = new User("Monica", "monicas@thoughtworks.com", "9448056963", "123-4567", "itsme");
+        User user = new User("Monica", "monicas@thoughtworks.com", "9448056963", "123-4567", "monica");
 
         view.showUserInformation(user);
 
         assertEquals("Monica monicas@thoughtworks.com 9448056963\n", outContent.toString());
     }
-    
+
+    @Test
+    public void shouldDisplayCheckedOutList() {
+        View view = new View();
+        HashMap<LibraryItem, String> checkedOutItems = new HashMap<LibraryItem, String>();
+        Movie movie1 = new Movie("Titanic", "1997", "James Cameron", "7.7");
+
+        checkedOutItems.put(movie1, "Monica");
+        view.displayCheckedOutList(checkedOutItems, Messages.listOfCheckedOutMovies, Messages.checkedOutMoviesHeader);
+
+        assertEquals("List of CheckedOutMovies\n" +
+                String.format("%-15s %-15s %-15s %-15s", "Name", "Director", "Year", "Rating", "Borrower") +
+                String.format("%-15s %-15s %-15s %-15s", "Titanic", "1997", "James Cameron", "7.7", "Monica") , outContent.toString());
+    }
 
     @After
     public void cleanUpStreams() {

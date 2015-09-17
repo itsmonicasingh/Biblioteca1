@@ -16,7 +16,7 @@ public class Movie implements LibraryItem{
 
     @Override
     public String toString() {
-        return String.format("%-15s %-15s %-15s %-15s", name, year, director, ratings);
+        return String.format("%-15s %-15s %-15s %-15s", name, director, year, ratings);
     }
 
     public boolean hasTitle(String movieName) {
