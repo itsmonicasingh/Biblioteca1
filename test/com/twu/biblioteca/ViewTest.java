@@ -41,7 +41,7 @@ public class ViewTest {
 
         assertEquals("List of Books\n" + String.format("%-15s %-15s %-5s\n", "Title", "Author", "Year Of Publication") +
                 String.format("%-15s %-15s %-15s\n", "Alchemist", "Paulo Coelho", 2006) +
-                String.format("%-15s %-15s %-15s\n", "Dracula", "Bram Stoker", 1998) , outContent.toString());
+                String.format("%-15s %-15s %-15s\n", "Dracula", "Bram Stoker", 1998), outContent.toString());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class ViewTest {
 
         view.show(Messages.invalidOption);
 
-        assertEquals("Select a valid option!\n",outContent.toString());
+        assertEquals("Select a valid option!\n", outContent.toString());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class ViewTest {
         view.show(Messages.librarianMenu);
 
         assertEquals("\n~~~~~~~~~~~~Menu~~~~~~~~~~~~\n" +
-                "==============================\n"+
+                "==============================\n" +
                 "[0] Quit\n" +
                 "[1] List Of Available Books\n" +
                 "[2] Checkout Book\n" +
@@ -73,7 +73,7 @@ public class ViewTest {
                 "[9] List Of CheckedOut Movies\n" +
                 "[10] List Of Users\n" +
                 "[11] LogOut\n" +
-                "==============================\n"+
+                "==============================\n" +
                 "Enter Your Option :\n", outContent.toString());
     }
 
@@ -124,20 +124,6 @@ public class ViewTest {
     }
 
     @Test
-    public void shouldDisplayCheckedOutList() {
-        View view = new View();
-        HashMap<LibraryItem, String> checkedOutItems = new HashMap<LibraryItem, String>();
-        Movie movie1 = new Movie("Titanic", "1997", "James Cameron", "7.7");
-
-        checkedOutItems.put(movie1, "Monica");
-        view.displayCheckedOutList(checkedOutItems, Messages.listOfCheckedOutMovies, Messages.checkedOutMoviesHeader);
-
-        assertEquals("List of CheckedOutMovies\n" +
-                String.format("%-15s %-15s %-15s %-15s", "Name", "Director", "Year", "Rating", "Borrower") +
-                String.format("%-15s %-15s %-15s %-15s", "Titanic", "1997", "James Cameron", "7.7", "Monica") , outContent.toString());
-    }
-
-    @Test
     public void shouldDisplayListOfUsers() {
         View view = new View();
         ArrayList<User> users = new ArrayList<User>();
@@ -149,9 +135,9 @@ public class ViewTest {
         view.displayListOfUsers(users, Messages.listOfUsers, Messages.userHeader);
 
         assertEquals("List of Users\n" +
-                String.format("%-15s %-15s %-15s %-15s", "Name", "Email Address", "PhoneNo") +
-                String.format("%-15s %-15s %-15s %-15s", "Monica", "monicas@thoughtworks.com", "9448056963") +
-                String.format("%-15s %-15s %-15s %-15s", "Pooja", "pooja@thoughtworks.com", "9198704815") ,outContent.toString());
+                String.format("%-15s %-15s %-15s\n", "Name", "Email Address", "PhoneNo") + "\n" +
+                String.format("%-1s %-1s %-1s\n", "Monica", "monicas@thoughtworks.com", "9448056963") +
+                String.format("%-1s %-1s %-1s\n", "Pooja", "pooja@thoughtworks.com", "9198704815"), outContent.toString());
     }
 
     @After
