@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
-
 //Gives Incorrect Login Message
 public class IncorrectLogin implements Operations {
-    private final View view;
+
+    private View view;
 
     public IncorrectLogin(View view) {
         this.view = view;

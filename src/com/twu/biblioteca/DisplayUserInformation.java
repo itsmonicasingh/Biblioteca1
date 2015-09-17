@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 //Displays user information
 public class DisplayUserInformation implements Operations {
+
     private View view;
     private User user;
 
