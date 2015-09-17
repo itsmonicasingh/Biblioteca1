@@ -27,6 +27,6 @@ public class UserController implements Operations {
     }
 
     private boolean isLogout(String userInput) {
-        return !((userInput.equals("8")));
+        return !((userInput.equals("8") && !user.isLibrarian()) || (userInput.equals("11") && user.isLibrarian()));
     }
 }
