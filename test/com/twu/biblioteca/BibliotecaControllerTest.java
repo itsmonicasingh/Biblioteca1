@@ -44,5 +44,3 @@ public class BibliotecaControllerTest {
         verify(mockedView).show(Messages.invalidOption);
     }
 }
-
-
