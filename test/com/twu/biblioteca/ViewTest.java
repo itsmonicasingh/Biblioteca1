@@ -124,6 +124,20 @@ public class ViewTest {
     }
 
     @Test
+    public void shouldDisplayCheckedOutList() {
+        View view = new View();
+        HashMap<LibraryItem, String> checkedOutItems = new HashMap<LibraryItem, String>();
+        Movie movie1 = new Movie("Titanic", "1997", "James Cameron", "7.7");
+
+        checkedOutItems.put(movie1, "Monica");
+        view.displayCheckedOutList(checkedOutItems, Messages.listOfCheckedOutMovies, Messages.checkedOutMoviesHeader);
+
+        assertEquals("List of CheckedOutMovies\n" +
+                String.format("%-20s %-20s %-20s %-20s %-20s\n", "Name", "Director", "year", "ratings", "Borrower") +
+                String.format("%-20s %-20s %-20s %-20s %-20s", "Titanic", "James Cameron", "1997", "7.7", "Monica"), outContent.toString());
+    }
+
+    @Test
     public void shouldDisplayListOfUsers() {
         View view = new View();
         ArrayList<User> users = new ArrayList<User>();

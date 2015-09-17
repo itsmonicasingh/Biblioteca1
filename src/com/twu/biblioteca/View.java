@@ -32,7 +32,8 @@ public class View {
         System.out.println(listOfItems.getMessage());
         System.out.print(itemHeader.getMessage());
         for (LibraryItem item : CheckedOutLibraryItems.keySet()) {
-            System.out.println(item + " " + CheckedOutLibraryItems.get(item));
+            System.out.print(item + " ");
+            System.out.printf("%-20s",  CheckedOutLibraryItems.get(item));
         }
     }
 
