@@ -97,6 +97,18 @@ public class BibliotecaParserTest {
     }
 
     @Test
+    public void shouldGiveNullObjectOnLogOut() {
+        when(user.isLibrarian()).thenReturn(false);
+
+        assertEquals(NullObject.class, bibliotecaParser.parse("8", user).getClass());
+    }
+
+    @Test
+    public void shouldGiveInvalidOptionObject() {
+        assertEquals(InvalidOption.class, bibliotecaParser.parse("90", user).getClass());
+    }
+
+    @Test
     public void shouldGiveUserControllerWhenUserExists() {
         assertEquals(UserController.class, bibliotecaParser.parse(user).getClass());
     }
