@@ -2,28 +2,59 @@ package com.twu.biblioteca;
 
 public class BibliotecaParser {
 
-    public Operations parse(String userInput, View view, Library bookLibrary, Library moviesLibrary) {
+    private View view;
+    private Library booksLibrary;
+    private Library moviesLibrary;
+    private Login login;
 
+    public BibliotecaParser(View view, Library booksLibrary, Library moviesLibrary, Login login) {
+        this.view = view;
+        this.booksLibrary = booksLibrary;
+        this.moviesLibrary = moviesLibrary;
+        this.login = login;
+    }
+
+    public Operations parse(String userInput, User user) {
         if (userInput.equals("0")) {
             return new Quit();
         } else if (userInput.equals("1")) {
-            return new Display(view, bookLibrary.getLibraryItems(), Messages.listOfBooks, Messages.booksHeader);
+            return new Display(view, booksLibrary.getLibraryItems(), Messages.listOfBooks, Messages.booksHeader);
         } else if (userInput.equals("2")) {
-            return new Display(view, bookLibrary.getCheckedOutLibraryItems(), Messages.listOfCheckedOutBooks, Messages.booksHeader);
+            return new CheckOut(view, booksLibrary, Messages.enterBookName, Messages.successfulBookCheckout, Messages.unsuccessfulBookCheckOut, user);
         } else if (userInput.equals("3")) {
-            return new CheckOut(view, bookLibrary, Messages.enterBookName, Messages.successfulBookCheckout, Messages.unsuccessfulBookCheckOut);
+            return new CheckIn(view, booksLibrary, Messages.enterBookName, Messages.successfulBookCheckIn, Messages.unsuccessfulBookCheckIn, user);
         } else if (userInput.equals("4")) {
-            return new CheckIn(view, bookLibrary, Messages.enterBookName, Messages.successfulBookCheckIn, Messages.unsuccessfulBookCheckIn);
-        } else if (userInput.equals("5")) {
             return new Display(view, moviesLibrary.getLibraryItems(), Messages.listOfMovies, Messages.moviesHeader);
+        } else if (userInput.equals("5")) {
+            return new CheckOut(view, moviesLibrary, Messages.enterMovieName, Messages.successfulMovieCheckout, Messages.unsuccessfulMovieCheckOut, user);
         } else if (userInput.equals("6")) {
-            return new Display(view, moviesLibrary.getCheckedOutLibraryItems(), Messages.listOfCheckedOutMovies, Messages.moviesHeader);
+            return new CheckIn(view, moviesLibrary, Messages.enterMovieName, Messages.successfulMovieCheckIn, Messages.unsuccessfulMovieCheckIn, user);
         } else if (userInput.equals("7")) {
-            return new CheckOut(view, moviesLibrary, Messages.enterMovieName, Messages.successfulMovieCheckout, Messages.unsuccessfulMovieCheckOut);
+            return new DisplayUserInformation(view, user);
         } else if (userInput.equals("8")) {
-            return new CheckIn(view, moviesLibrary, Messages.enterMovieName, Messages.successfulMovieCheckIn, Messages.unsuccessfulMovieCheckIn);
+            return new NullObject();
+        } else {
+            return new InvalidOption(view);
         }
-        else {
+    }
+
+    public Operations parse(User user) {
+        if (user == null) {
+            return new IncorrectLogin(view);
+        }
+        if (user.isLibrarian()) {
+            return new UserController(view, user, this, Messages.librarianMenu);
+        } else {
+            return new UserController(view, user, this, Messages.userMenu);
+        }
+    }
+
+    public Operations parse(String input) {
+        if (input.equals("0")) {
+            return new Quit();
+        } else if (input.equals("1")) {
+            return new LoginController(this, login);
+        } else {
             return new InvalidOption(view);
         }
     }
