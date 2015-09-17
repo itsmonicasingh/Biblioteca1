@@ -7,6 +7,7 @@ public enum Messages {
     enterBookName("Enter the Book Name:"),
     enterMovieName("Enter the Movie Name:"),
 
+    errorInLogin("Incorrect Username Or Password"),
     successfulBookCheckout("Thank you! Enjoy the book"),
     successfulMovieCheckout("Thank you! Enjoy the Movie"),
 
