@@ -21,10 +21,14 @@ public class User {
         return name + " " + emailAddress + " " + phoneNumber;
     }
 
-    public boolean match(String s, String itsme) {
+    public boolean match(String s, String monica) {
         if (libraryNo.equals(s))
-            if (password.equals(itsme))
+            if (password.equals(monica))
                 return true;
         return false;
+    }
+
+    public String getName() {
+        return name;
     }
 }

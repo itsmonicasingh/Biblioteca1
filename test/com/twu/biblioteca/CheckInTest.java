@@ -1,32 +1,37 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
 public class CheckInTest {
 
+    private User user;
+    Library mockedLibrary;
+    View mockedView;
+    CheckIn checkIn;
+
+    @Before
+    public void setUp() throws Exception {
+        mockedLibrary = mock(Library.class);
+        mockedView = mock(View.class);
+        user = mock(User.class);
+        checkIn = new CheckIn(mockedView, mockedLibrary, Messages.enterBookName, Messages.successfulBookCheckIn, Messages.unsuccessfulBookCheckIn, user);
+        when(user.getName()).thenReturn("Monica");
+    }
+
     @Test
     public void checkInShouldCallCheckInBook() {
-        Library mockedLibrary = mock(Library.class);
-        View mockedView = mock(View.class);
-
-        CheckIn checkIn = new CheckIn(mockedView, mockedLibrary, Messages.enterBookName, Messages.successfulBookCheckIn, Messages.unsuccessfulBookCheckIn);
-
         when(mockedView.getInput()).thenReturn("Alchemist");
         checkIn.execute();
 
-        verify(mockedLibrary).checkInLibraryItem("Alchemist");
+        verify(mockedLibrary).checkInLibraryItem(user.getName(), "Alchemist");
     }
 
     @Test
     public void checkInShouldCallDisplaySuccessfulCheckout() {
-        Library mockedLibrary = mock(Library.class);
-        View mockedView = mock(View.class);
-
-        CheckIn checkIn = new CheckIn(mockedView, mockedLibrary, Messages.enterBookName, Messages.successfulBookCheckIn, Messages.unsuccessfulBookCheckIn);
-
-        when(mockedLibrary.checkInLibraryItem("Alchemist")).thenReturn(true);
+        when(mockedLibrary.checkInLibraryItem(user.getName(), "Alchemist")).thenReturn(true);
         when(mockedView.getInput()).thenReturn("Alchemist");
         checkIn.execute();
 
@@ -35,12 +40,7 @@ public class CheckInTest {
 
     @Test
     public void checkInShouldCallDisplayUnSuccessfulCheckout() {
-        Library mockedLibrary = mock(Library.class);
-        View mockedView = mock(View.class);
-
-        CheckIn checkIn = new CheckIn(mockedView, mockedLibrary, Messages.enterBookName, Messages.successfulBookCheckIn, Messages.unsuccessfulBookCheckIn);
-
-        when(mockedLibrary.checkInLibraryItem("Alchemist")).thenReturn(false);
+        when(mockedLibrary.checkInLibraryItem(user.getName(), "Alchemist")).thenReturn(false);
         when(mockedView.getInput()).thenReturn("Alchemist");
         checkIn.execute();
 
