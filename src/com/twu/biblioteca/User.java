@@ -7,13 +7,15 @@ public class User {
     String phoneNumber;
     String libraryNo;
     String password;
+    private boolean isLibrarian;
 
-    public User(String name, String emailAddress, String phoneNumber, String libraryNo, String password) {
+    public User(String name, String emailAddress, String phoneNumber, String libraryNo, String password, boolean isLibrarian) {
         this.name = name;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
         this.libraryNo = libraryNo;
         this.password = password;
+        this.isLibrarian = isLibrarian;
     }
 
     @Override
@@ -30,5 +32,9 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isLibrarian() {
+        return isLibrarian;
     }
 }
