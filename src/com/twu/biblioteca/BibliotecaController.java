@@ -4,23 +4,18 @@ package com.twu.biblioteca;
 public class BibliotecaController {
 
     private View view;
-    private Library bookLibrary;
-    private Library moviesLibrary;
+    private BibliotecaParser parser;
 
-    public BibliotecaController(View view, Library bookLibrary, Library moviesLibrary) {
+    public BibliotecaController(View view, BibliotecaParser parser) {
         this.view = view;
-        this.bookLibrary = bookLibrary;
-        this.moviesLibrary = moviesLibrary;
+        this.parser = parser;
     }
 
     public void start() {
         view.show(Messages.welcome);
-        String userInput;
         while (true) {
-            view.show(Messages.menu);
-            userInput = view.getInput();
-            BibliotecaParser parser = new BibliotecaParser();
-            Operations operation = parser.parse(userInput, view, bookLibrary, moviesLibrary);
+            view.show(Messages.loginMenu);
+            Operations operation = parser.parse(view.getInput());
             operation.execute();
         }
     }
