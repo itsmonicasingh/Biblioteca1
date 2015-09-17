@@ -32,6 +32,8 @@ public class BibliotecaParser {
         } else if (userInput.equals("7")) {
             return new DisplayUserInformation(view, user);
         } else if (userInput.equals("8")) {
+            if (user.isLibrarian())
+                return new DisplayCheckedOutList(view, booksLibrary.getCheckedOutLibraryItems(), Messages.listOfCheckedOutBooks, Messages.checkedOutBooksHeader);
             return new NullObject();
         } else {
             return new InvalidOption(view);

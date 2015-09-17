@@ -71,6 +71,13 @@ public class BibliotecaParserTest {
     }
 
     @Test
+    public void shouldGiveDisplayCheckOutListObjectOn8AsInput() {
+        when(user.isLibrarian()).thenReturn(true);
+
+        assertEquals(DisplayCheckedOutList.class, bibliotecaParser.parse("8", user).getClass());
+    }
+
+    @Test
     public void shouldGiveLoginObjectOn1AsOptionInLoginMenu() {
         assertEquals(LoginController.class, bibliotecaParser.parse("1").getClass());
     }
