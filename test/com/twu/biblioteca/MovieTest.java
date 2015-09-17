@@ -11,7 +11,7 @@ public class MovieTest {
     public void moviesShouldReturnMovieDetails() {
         Movie movie = new Movie("Titanic", "James Cameron", "1997", "7.7");
 
-        assertEquals(String.format("%-15s %-15s %-15s %-15s", "Titanic", "1997","James Cameron", "7.7"), movie.toString());
+        assertEquals(String.format("%-20s %-20s %-20s %-20s", "Titanic", "1997","James Cameron", "7.7"), movie.toString());
     }
 
     @Test

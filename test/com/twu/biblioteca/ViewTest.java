@@ -39,9 +39,9 @@ public class ViewTest {
 
         view.displayListOfLibraryItems(bookLibrary.getLibraryItems(), Messages.listOfBooks, Messages.booksHeader);
 
-        assertEquals("List of Books\n" + String.format("%-15s %-15s %-5s\n", "Title", "Author", "Year Of Publication") +
-                String.format("%-15s %-15s %-15s\n", "Alchemist", "Paulo Coelho", 2006) +
-                String.format("%-15s %-15s %-15s\n", "Dracula", "Bram Stoker", 1998), outContent.toString());
+        assertEquals("List of Books\n" + String.format("%-20s %-20s %-20s\n", "Title", "Author", "Year Of Publication") +
+                String.format("%-20s %-20s %-20s\n", "Alchemist", "Paulo Coelho", 2006) +
+                String.format("%-20s %-20s %-20s\n", "Dracula", "Bram Stoker", 1998), outContent.toString());
     }
 
     @Test
@@ -135,7 +135,7 @@ public class ViewTest {
         view.displayListOfUsers(users, Messages.listOfUsers, Messages.userHeader);
 
         assertEquals("List of Users\n" +
-                String.format("%-15s %-15s %-15s\n", "Name", "Email Address", "PhoneNo") + "\n" +
+                String.format("%-20s %-20s %-20s\n", "Name", "Email Address", "PhoneNo") + "\n" +
                 String.format("%-1s %-1s %-1s\n", "Monica", "monicas@thoughtworks.com", "9448056963") +
                 String.format("%-1s %-1s %-1s\n", "Pooja", "pooja@thoughtworks.com", "9198704815"), outContent.toString());
     }

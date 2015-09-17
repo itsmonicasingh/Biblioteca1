@@ -10,7 +10,7 @@ public class BookTest {
     @Test
     public void shouldGiveBookName() {
         Book book = new Book("Dracula","Bram Stoker ","1994");
-        assertEquals(String.format("%-15s %-15s %-15s", "Dracula", "Bram Stoker", "1994"), book.toString());
+        assertEquals(String.format("%-20s %-20s %-20s", "Dracula", "Bram Stoker", "1994"), book.toString());
     }
 
     @Test

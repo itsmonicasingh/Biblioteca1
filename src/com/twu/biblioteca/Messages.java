@@ -22,11 +22,11 @@ public enum Messages {
     unsuccessfulBookCheckIn("That is not a valid book to return."),
     unsuccessfulMovieCheckIn("That is not a valid Movie to return."),
 
-    booksHeader(String.format("%-15s %-15s %-15s\n", "Title", "Author", "Year Of Publication")),
-    checkedOutBooksHeader(String.format("%-15s %-15s %-15s %-15s\n", "Title", "Author", "Year", "Borrower")),
-    moviesHeader(String.format("%-15s %-15s %-15s %-15s\n", "Name", "Year", "Director", "ratings")),
-    checkedOutMoviesHeader(String.format("%-15s %-15s %-15s %-15s %-15s\n", "Name", "Director", "year", "ratings", "Borrower")),
-    userHeader(String.format("%-15s %-15s %-15s\n", "Name", "Email Address", "PhoneNo")),
+    booksHeader(String.format("%-20s %-20s %-20s\n", "Title", "Author", "Year Of Publication")),
+    checkedOutBooksHeader(String.format("%-20s %-20s %-20s %-20s\n", "Title", "Author", "Year", "Borrower")),
+    moviesHeader(String.format("%-20s %-20s %-20s %-20s\n", "Name", "Director", "Year", "ratings")),
+    checkedOutMoviesHeader(String.format("%-20s %-20s %-20s %-20s %-20s\n", "Name", "Director", "year", "ratings", "Borrower")),
+    userHeader(String.format("%-20s %-20s %-20s\n", "Name", "Email Address", "PhoneNo")),
 
     listOfBooks("List of Books"),
     listOfMovies("List of Movies"),
