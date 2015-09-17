@@ -35,4 +35,12 @@ public class View {
             System.out.println(item + " " + CheckedOutLibraryItems.get(item));
         }
     }
+
+    public void displayListOfUsers(ArrayList<User> users, Messages listOfUsers, Messages userHeader) {
+        System.out.println(listOfUsers.getMessage());
+        System.out.println(userHeader.getMessage());
+        for (User user : users) {
+            System.out.println(user);
+        }
+    }
 }

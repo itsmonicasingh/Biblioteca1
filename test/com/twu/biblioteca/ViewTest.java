@@ -103,7 +103,7 @@ public class ViewTest {
     @Test
     public void shouldDisplayUserInformation() {
         View view = new View();
-        User user = new User("Monica", "monicas@thoughtworks.com", "9448056963", "123-4567", "monica");
+        User user = new User("Monica", "monicas@thoughtworks.com", "9448056963", "123-4567", "monica", true);
 
         view.showUserInformation(user);
 
@@ -122,6 +122,23 @@ public class ViewTest {
         assertEquals("List of CheckedOutMovies\n" +
                 String.format("%-15s %-15s %-15s %-15s", "Name", "Director", "Year", "Rating", "Borrower") +
                 String.format("%-15s %-15s %-15s %-15s", "Titanic", "1997", "James Cameron", "7.7", "Monica") , outContent.toString());
+    }
+
+    @Test
+    public void shouldDisplayListOfUsers() {
+        View view = new View();
+        ArrayList<User> users = new ArrayList<User>();
+        User user1 = new User("Monica", "monicas@thoughtworks.com", "9448056963", "123-4567", "monica", true);
+        User user2 = new User("Pooja", "pooja@thoughtworks.com", "9198704815", "765-4321", "pooja", false);
+
+        users.add(user1);
+        users.add(user2);
+        view.displayListOfUsers(users, Messages.listOfUsers, Messages.userHeader);
+
+        assertEquals("List of Users\n" +
+                String.format("%-15s %-15s %-15s %-15s", "Name", "Email Address", "PhoneNo") +
+                String.format("%-15s %-15s %-15s %-15s", "Monica", "monicas@thoughtworks.com", "9448056963") +
+                String.format("%-15s %-15s %-15s %-15s", "Pooja", "pooja@thoughtworks.com", "9198704815") ,outContent.toString());
     }
 
     @After
