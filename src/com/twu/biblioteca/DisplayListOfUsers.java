@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 //Display List of Users.
 public class DisplayListOfUsers implements Operations {
+
     private View view;
     private ArrayList<User> users;
     private Messages listOfUsers;

@@ -6,7 +6,6 @@ public class InvalidOption implements Operations {
     private View view;
 
     public InvalidOption(View view) {
-
         this.view = view;
     }
 

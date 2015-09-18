@@ -1,7 +1,8 @@
 package com.twu.biblioteca;
 
 //Movie has name, year, director and ratings
-public class Movie implements LibraryItem{
+public class Movie implements LibraryItem {
+
     private String name;
     private String year;
     private String director;

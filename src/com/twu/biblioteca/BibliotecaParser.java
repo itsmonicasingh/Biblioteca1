@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+//Parses the input according to the arguments passed
 public class BibliotecaParser {
 
     private View view;

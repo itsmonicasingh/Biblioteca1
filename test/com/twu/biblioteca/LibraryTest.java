@@ -101,6 +101,3 @@ public class LibraryTest {
         assertEquals(false, bookLibrary.checkInLibraryItem(user, "This book was never in the library"));
     }
 }
-
-
-

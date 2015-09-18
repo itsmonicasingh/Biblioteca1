@@ -17,12 +17,12 @@ public class BibliotecaApp {
         User user1 = new User("Monica", "monicas@thoughtworks.com", "9448056963", "123-4567", "monica", true);
         User user2 = new User("Pooja", "pooja@thoughtworks.com", "9198704815", "765-4321", "pooja", false);
 
-
         ArrayList<LibraryItem> books = new ArrayList<LibraryItem>();
         HashMap<LibraryItem, String> checkedBooks = new HashMap<LibraryItem, String>();
 
         ArrayList<LibraryItem> movies = new ArrayList<LibraryItem>();
         HashMap<LibraryItem, String> checkedMovies = new HashMap<LibraryItem, String>();
+
         ArrayList<User> users = new ArrayList<User>();
 
         books.add(book1);

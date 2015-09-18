@@ -21,7 +21,6 @@ public class CheckOut implements Operations {
 
     @Override
     public void execute() {
-
         view.show(enterItemName);
         if (library.checkOutLibraryItem(user.getName(), view.getInput())) {
             view.show(successfulItemCheckout);
@@ -29,5 +28,4 @@ public class CheckOut implements Operations {
             view.show(unsuccessfulItemCheckOut);
         }
     }
-
 }

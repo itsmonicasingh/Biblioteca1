@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 //has a string message which it returns.
 public enum Messages {
+
     welcome("Welcome to Biblioteca"),
     invalidOption("Select a valid option!"),
     enterBookName("Enter the Book Name:"),
@@ -37,8 +38,8 @@ public enum Messages {
 
     loginMenu("\n~~~~~~~~~~~~~Menu~~~~~~~~~~~~~\n" +
             "==============================\n" +
-            "[0] Quit                    \n" +
             "[1] Login                   \n" +
+            "[0] Quit                    \n" +
             "==============================\n" +
             "Enter Your Option :"),
 

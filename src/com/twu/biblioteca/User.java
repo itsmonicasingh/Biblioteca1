@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 //has user details: name, email, ph.no, lib.no, passwrd
 public class User {
+
     String name;
     String emailAddress;
     String phoneNumber;

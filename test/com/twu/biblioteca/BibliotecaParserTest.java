@@ -17,7 +17,6 @@ public class BibliotecaParserTest {
     LoginController loginController;
     private Login login;
 
-
     @Before
     public void setUp() {
         view = mock(View.class);
@@ -112,4 +111,3 @@ public class BibliotecaParserTest {
         assertEquals(UserController.class, bibliotecaParser.parse(user).getClass());
     }
 }
-

@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-
+//controls the application
 public class BibliotecaController {
 
     private View view;
