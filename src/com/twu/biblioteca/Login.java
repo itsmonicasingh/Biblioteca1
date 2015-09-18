@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
+//Authenticates a user
 public class Login {
     private ArrayList<User> users;
     private View view;

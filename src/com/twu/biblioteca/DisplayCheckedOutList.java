@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.HashMap;
 
+//Displays the list of checked out items
 public class DisplayCheckedOutList implements Operations {
     private View view;
     private HashMap<LibraryItem, String> checkedOutLibraryItems;

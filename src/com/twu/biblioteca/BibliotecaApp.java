@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//Starts the application
 public class BibliotecaApp {
 
     public static void main(String[] args) {
