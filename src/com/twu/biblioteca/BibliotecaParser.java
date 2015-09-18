@@ -38,26 +38,14 @@ public class BibliotecaParser {
         } else if (userInput.equals("9")) {
             if (user.isLibrarian())
                 return new DisplayCheckedOutList(view, moviesLibrary.getCheckedOutLibraryItems(), Messages.listOfCheckedOutMovies, Messages.checkedOutMoviesHeader);
-
-            if (user.isLibrarian())
-                return new DisplayListOfUsers(view, login.getUsers(), Messages.listOfUsers, Messages.userHeader);
-
-            if (user.isLibrarian())
-                return new NullObject();
-
             return new InvalidOption(view);
         } else if (userInput.equals("10")) {
             if (user.isLibrarian())
                 return new DisplayListOfUsers(view, login.getUsers(), Messages.listOfUsers, Messages.userHeader);
-
-            if (user.isLibrarian())
-                return new NullObject();
-
             return new InvalidOption(view);
         } else if (userInput.equals("11")) {
             if (user.isLibrarian())
                 return new NullObject();
-
             return new InvalidOption(view);
         } else {
             return new InvalidOption(view);
