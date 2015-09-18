@@ -4,7 +4,7 @@
 
 2. Setting Up Development Environment
         1. Install JDK 1.8 from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html according to OS.
-        2. Install an
+        2. Install ant
 
 3. Build the project.
     Run the following command from terminal:
